@@ -13,15 +13,15 @@ jobs:
         with:
           java-version: 11
       - name: Build with Maven
-      - runs: mvn -B package --file pom.xml
-
-          - docker version
+        runs: |
+          mvn -B package --file pom.xml
+          docker version
       - name: docker build & push aliyun
         env:
           aliyun_username: ${{ secrets.Aliyun_Username }}
           aliyun_password: ${{ secrets.Aliyun_Password }}
-          run
-            - sudo docker login --username=${aliyun_username} registry.cn-beijing.aliyuncs.com --password=${{ secrets.aliyun_password }}
-            - sudo docker build -t ${{ matrix.image-name }}:${{ github.job }} .
-            - sudo docker tag ${{ matrix.image-name }}:${{ github.job }} registry.cn-beijing.aliyuncs.com/mytest1_1/account:${{ github.job }}
-            - sudo docker push registry.cn-beijing.aliyuncs.com/mytest1_1/account:${{ github.job }}
+          run: |
+            sudo docker login --username=${aliyun_username} registry.cn-beijing.aliyuncs.com --password=${{ secrets.aliyun_password }}
+            sudo docker build -t ${{ matrix.image-name }}:${{ github.job }} .
+            sudo docker tag ${{ matrix.image-name }}:${{ github.job }} registry.cn-beijing.aliyuncs.com/mytest1_1/account:${{ github.job }}
+            sudo docker push registry.cn-beijing.aliyuncs.com/mytest1_1/account:${{ github.job }}
