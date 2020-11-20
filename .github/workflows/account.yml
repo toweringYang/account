@@ -1,0 +1,11 @@
+name: account build
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    -uses: actions/chexkout@v1
+    -name: set up jdk
+    uses:
