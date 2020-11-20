@@ -20,8 +20,9 @@ jobs:
         env:
           aliyun_username: ${{ secrets.Aliyun_Username }}
           aliyun_password: ${{ secrets.Aliyun_Password }}
+          id: ${{ github.job }}
         run: |
           sudo docker login --username=${aliyun_username} registry.cn-beijing.aliyuncs.com --password=${{ secrets.aliyun_password }}
-          sudo docker build -t account:${{ github.job }} .
+          sudo docker build -t account:"id" .
           sudo docker tag account:${{ github.job }} registry.cn-beijing.aliyuncs.com/mytest1_1/account:${{ github.job }}
           sudo docker push registry.cn-beijing.aliyuncs.com/mytest1_1/account:${{ github.job }}
