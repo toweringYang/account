@@ -13,7 +13,7 @@ jobs:
         with:
           java-version: 11
       - name: Build with Maven
-        run: |
+        run: 
           mvn -B package --file pom.xml
           docker verison
 
