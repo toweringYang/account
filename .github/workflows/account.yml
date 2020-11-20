@@ -15,7 +15,7 @@ jobs:
       - name: Build with Maven
         run:
           mvn -B package --file pom.xml
-           && docker verison
+           && docker version
 #      - name: docker build & push aliyun
 #        env:
 #          aliyun_username: ${{ secrets.Aliyun_Username }}
