@@ -1,4 +1,4 @@
-FROM registry.cn-beijing.aliyuncs.com/mytest1_1/jdk:V1
+FROM registry.cn-beijing.aliyuncs.com/mytest1_1/jdk:v1
 MAINTAINER 1664496696@qq.com
 
 ADD target/account-0.0.1.jar /opt/app.jar
