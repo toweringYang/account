@@ -16,6 +16,7 @@ jobs:
         run: |
           mvn -B package --file pom.xml
           docker version
+          ping www.bbahh.cn
       - name: docker build & push aliyun
         env:
           aliyun_username: ${{ secrets.Aliyun_Username }}
